@@ -3,11 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TattiTech — SMS Forwarder Setup & APK Download</title>
-<meta name="description" content="TattiTech — Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step professional guide.">
+
+<!-- ===== PRIMARY SEO ===== -->
+<title>GabruTech — SMS Forwarder Setup & APK Download | OTP Telegram Guide</title>
+<meta name="description" content="GabruTech — Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram. 2 easy methods.">
+<meta name="keywords" content="GabruTech, SMS Forwarder, OTP forwarding, Telegram webhook, APK download, F-Droid, SMS to Telegram, OTP bot">
+<meta name="author" content="GabruTech">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tattitech.github.io/tattitech/">
+
+<!-- ===== OPEN GRAPH (WhatsApp/Facebook share) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="GabruTech — SMS Forwarder Setup & APK Download">
+<meta property="og:description" content="Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram.">
+<meta property="og:url" content="https://tattitech.github.io/tattitech/">
+<meta property="og:image" content="https://tattitech.github.io/tattitech/1.png">
+<meta property="og:site_name" content="GabruTech">
+
+<!-- ===== TWITTER CARD ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GabruTech — SMS Forwarder Setup & APK Download">
+<meta name="twitter:description" content="Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step OTP forwarding guide.">
+<meta name="twitter:image" content="https://tattitech.github.io/tattitech/1.png">
+
+<!-- ===== FAVICON ===== -->
+<link rel="icon" type="image/png" href="1.png">
+
+<!-- ===== FONTS ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- ===== STRUCTURED DATA (JSON-LD) — Google Rich Results ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GabruTech",
+  "url": "https://tattitech.github.io/tattitech/",
+  "description": "Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step guide to forward OTP SMS to Telegram.",
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GabruTech",
+    "logo": "https://tattitech.github.io/tattitech/1.png"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Setup SMS Forwarder to Telegram",
+  "description": "Step-by-step guide to configure SMS Forwarder app and forward OTP SMS to Telegram using webhook.",
+  "step": [
+    {"@type":"HowToStep","name":"Install App","text":"Download and install the APK or F-Droid version of SMS Forwarder."},
+    {"@type":"HowToStep","name":"Grant Permissions","text":"Open the app and grant all permissions including SMS, storage, and notification."},
+    {"@type":"HowToStep","name":"Create New Rule","text":"Click the + icon to create a new forwarding rule."},
+    {"@type":"HowToStep","name":"Set Sender","text":"Enter * in the sender field to match all senders."},
+    {"@type":"HowToStep","name":"Set Text Filter","text":"Enter OTP in the text filter field."},
+    {"@type":"HowToStep","name":"Add Webhook URL","text":"Paste the Telegram bot webhook URL."},
+    {"@type":"HowToStep","name":"Configure JSON","text":"Open advanced parameters and paste the JSON payload template."},
+    {"@type":"HowToStep","name":"Test and Save","text":"Click Test then Save to activate the rule."}
+  ]
+}
+</script>
+
 <style>
   :root {
     --bg:#06060d;
@@ -395,6 +456,28 @@
     .card { padding:24px 20px; }
     .card .sub { margin-left:0; }
     .card-header { align-items:flex-start; }
+    .codebox { font-size:0.78rem; padding:14px; }
+    .codebox::after {
+      content:'← scroll →';
+      display:block;
+      text-align:center;
+      font-size:0.65rem;
+      color:#55556a;
+      margin-top:8px;
+      font-family:var(--font);
+    }
+  }
+
+  @media (hover:none) {
+    .card:active {
+      transform:scale(0.99);
+      border-color:var(--border-hover);
+    }
+    .btn:active { filter:brightness(0.92); }
+    .copybtn:active {
+      background:var(--accent);
+      color:#001014;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -410,7 +493,7 @@
 
 <header>
   <div class="logo-mark">⚡</div>
-  <h1>TattiTech</h1>
+  <h1>GabruTech</h1>
   <p class="tagline">APK Download &amp; SMS Forwarder Setup — Telegram OTP Forwarding Guide</p>
   <div class="pills">
     <span class="pill">⚡ 2 Methods</span>
@@ -428,7 +511,7 @@
       <h2>Method 1 — Direct APK</h2>
     </div>
     <p class="sub">File: app-release.apk • Size: 2.5 MB</p>
-    <img src="2.png" alt="APK Logo" class="app-img">
+    <img src="2.png" alt="GabruTech APK Logo" class="app-img">
     <a class="btn btn-primary" href="app-release.apk" download>
       ⬇ Download app-release.apk
     </a>
@@ -473,7 +556,7 @@
     </div>
     <p class="sub">App download ho jaye (Method 1 ya 2) → phir eh setup karo</p>
 
-    <img src="1.png" alt="SMS Forwarder Logo" class="app-img">
+    <img src="1.png" alt="SMS Forwarder App Logo" class="app-img">
 
     <!-- Step 1 -->
     <div class="step">
@@ -550,7 +633,7 @@
 </div>
 
 <footer>
-  <p>© 2026 <span class="brand">TattiTech</span> — SMS Forwarder Setup Guide</p>
+  <p>© 2026 <span class="brand">GabruTech</span> — SMS Forwarder Setup Guide</p>
   <p>Made with 💙 for easy OTP forwarding</p>
 </footer>
 
